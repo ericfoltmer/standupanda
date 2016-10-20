@@ -290,7 +290,7 @@ def main():
     text = request.form.get("text", "")
 
     # find !command, but ignore <!command
-    match = re.findall(r"(?<<)!(\S+)", text)
+    match = re.findall(r"(?<!<)(\S+)", text)
     if not match: return
 
     command = match[0]
