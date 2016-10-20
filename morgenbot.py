@@ -252,7 +252,7 @@ def giphy(text):
 
 def help(topic=''):
     if topic == '':
-        post_message('My commands are !standup, !start, !cancel, !next, !skip, !table, !left, !ignore, !heed, and !ignoring.\nAsk me "!help <command> to learn what they do.')
+        post_message('My commands are standup, start, cancel, next, !skip, !table, !left, !ignore, !heed, and !ignoring.\nAsk me "!help <command> to learn what they do.')
         return
         
     topic = topic[1:]
@@ -290,7 +290,7 @@ def main():
     text = request.form.get("text", "")
 
     # find !command, but ignore <!command
-    match = re.findall(r"(?<!<)!(\S+)", text)
+    match = re.findall(r"(?<<)!(\S+)", text)
     if not match: return
 
     command = match[0]
